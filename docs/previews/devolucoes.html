@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Consulte ferramentas disponíveis e organize empréstimos na associação comunitária.">
+  <title>Devoluções e atrasos — MVP acadêmico</title>
+  <link rel="stylesheet" href="../../app/static/css/styles.css">
+  <script src="../../app/static/js/main.js" defer></script>
+</head>
+<body>
+  <svg class="svg-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-tools" viewBox="0 0 24 24"><path d="M14.7 6.3a5 5 0 0 0-6.4 6.4l-6 6a2 2 0 0 0 2.8 2.8l6-6a5 5 0 0 0 6.4-6.4L14 12l-2.8-2.8z"/><path d="m3 3 18 18M4 8l4-4"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="7.5" r="4"/><path d="M4 21v-2c0-4.4 3.1-7 8-7s8 2.6 8 7v2z"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 20c0-4 2.5-6 7-6s7 2 7 6M16 5c2.5 0 4 2 4 4s-1.5 3-3 3M18 14c3.5.3 4.5 2.5 4.5 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m4 12 5 5L20 6"/></symbol>
+    <symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m6.7 12 3.2 3.2 7.4-7.4"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="m12 3 10 18H2z"/><path d="M12 9v5m0 3v.4"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 11v6m0-10v1"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="m2 11 10-8 10 8M5 10v11h14V10"/></symbol>
+    <symbol id="i-log-out" viewBox="0 0 24 24"><path d="M9 3H4v18h5M13 7l5 5-5 5M18 12H8"/></symbol>
+    <symbol id="i-clipboard" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="17" rx="2"/><path d="M9 3h6v4H9zM8 12h8m-8 4h5"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 5h7l2 3h9v12H3z"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 2v6M17 2v6M3 10h18"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+    <symbol id="i-arrow-back" viewBox="0 0 24 24"><path d="M20 12H5m0 0 6-6m-6 6 6 6"/></symbol>
+    <symbol id="i-return" viewBox="0 0 24 24"><path d="M20 6v6H8m0 0 5-5m-5 5 5 5M3 19h13"/></symbol>
+    <symbol id="i-save" viewBox="0 0 24 24"><path d="M4 3h14l3 3v15H3V3h1zM7 3v7h10V3M7 21v-8h10v8"/></symbol>
+    <symbol id="i-boxes" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7zM2 12l10 5 10-5M2 17l10 5 10-5"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 22s8-9 8-14a8 8 0 0 0-16 0c0 5 8 14 8 14z"/><circle cx="12" cy="8" r="2.5"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+  </svg>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <a class="brand" href="catalogo.html" aria-label="Ferramenta Compartilhada — página inicial">
+        <svg class="brand-mark" aria-hidden="true"><use href="#i-tools"></use></svg>
+        <span class="brand-divider" aria-hidden="true"></span>
+        <span class="brand-copy"><strong>Ferramenta Compartilhada</strong>
+        <span>Área administrativa <span aria-hidden="true">•</span> Devoluções e atrasos</span></span>
+      </a>
+      <nav class="top-actions" aria-label="Navegação principal">
+        
+          <a class="nav-btn " href="emprestimo.html"><svg class="icon"><use href="#i-clipboard"/></svg> Empréstimos</a>
+          <a class="nav-btn nav-current" href="devolucoes.html"><svg class="icon"><use href="#i-folder"/></svg> Devoluções</a>
+          <form method="post" action="login.html" class="nav-form"><input type="hidden" name="csrf_token" value="preview-token"><button type="submit" class="nav-btn"><svg class="icon"><use href="#i-log-out"/></svg> Sair</button></form>
+        
+      </nav>
+    </div>
+  </header>
+  <main class="main-shell " id="conteudo">
+    <nav class="breadcrumb" aria-label="Caminho de navegação">
+  <a href="catalogo.html"><svg class="icon"><use href="#i-home"/></svg> Catálogo público</a>
+  <svg class="icon chevron" aria-hidden="true"><use href="#i-chevron"/></svg>
+  <a href="emprestimo.html">Área administrativa</a>
+  <svg class="icon chevron" aria-hidden="true"><use href="#i-chevron"/></svg>
+  <strong aria-current="page">Devoluções e atrasos</strong>
+</nav>
+    
+      
+    
+    
+<div class="admin-head"><h1>Devoluções e Atrasos</h1><p>Acompanhe os empréstimos ativos, verifique os prazos e registre as devoluções.</p></div>
+<div class="metrics" aria-label="Resumo dos empréstimos">
+  <div class="metric metric-total"><svg class="icon"><use href="#i-boxes"/></svg><div><strong>3</strong><span>Empréstimos ativos</span></div></div>
+  <div class="metric metric-overdue"><svg class="icon"><use href="#i-alert"/></svg><div><strong>1</strong><span>Atrasado</span></div></div>
+  <div class="metric metric-current"><svg class="icon"><use href="#i-check-circle"/></svg><div><strong>2</strong><span>No prazo</span></div></div>
+</div>
+<form class="filters-row" role="search" method="get" action="devolucoes.html">
+  <div class="search-box"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg><label class="sr-only" for="loan_q">Buscar por ferramenta ou morador</label><input id="loan_q" name="q" value="" maxlength="80" placeholder="Buscar por ferramenta ou morador"></div>
+  <label class="sr-only" for="loan_filter">Filtrar situação</label><select id="loan_filter" name="status" data-auto-submit><option value="todos" selected>Todos os status</option><option value="atrasados" >Atrasados</option><option value="no-prazo" >No prazo</option></select>
+  <button class="btn btn-primary" type="submit">Filtrar</button>
+</form>
+<section class="table-card" aria-label="Empréstimos ativos">
+  <div class="table-scroll"><table class="loan-table"><thead><tr><th scope="col">Ferramenta</th><th scope="col">Morador</th><th scope="col">Empréstimo</th><th scope="col">Devolução prevista</th><th scope="col">Situação</th><th scope="col">Ações</th></tr></thead><tbody>
+    <tr><td><div class="table-tool"><img src="../../app/static/img/escada.jpg" alt="" width="64" height="60"><span><strong>Escada de alumínio</strong><small>E002</small></span></div></td><td><div class="table-person"><svg class="icon"><use href="#i-user"/></svg>Morador 002</div></td><td class="nowrap">25/10/2026</td><td class="nowrap">30/10/2026</td><td><span class="loan-status loan-atrasado"><svg class="icon"><use href="#i-alert"/></svg>Atrasado</span></td><td><form method="post" action="devolucoes.html" class="return-form" data-confirm-return="Confirmar a devolução da ferramenta Escada de alumínio?"><input type="hidden" name="csrf_token" value="preview-token"><button class="btn btn-primary btn-return" type="submit"><svg class="icon"><use href="#i-return"/></svg> Registrar devolução</button></form></td></tr><tr><td><div class="table-tool"><img src="../../app/static/img/serra.jpg" alt="" width="64" height="60"><span><strong>Serra circular</strong><small>S004</small></span></div></td><td><div class="table-person"><svg class="icon"><use href="#i-user"/></svg>Morador 003</div></td><td class="nowrap">31/10/2026</td><td class="nowrap">08/11/2026</td><td><span class="loan-status loan-no-prazo"><svg class="icon"><use href="#i-check-circle"/></svg>No prazo</span></td><td><form method="post" action="devolucoes.html" class="return-form" data-confirm-return="Confirmar a devolução da ferramenta Serra circular?"><input type="hidden" name="csrf_token" value="preview-token"><button class="btn btn-primary btn-return" type="submit"><svg class="icon"><use href="#i-return"/></svg> Registrar devolução</button></form></td></tr><tr><td><div class="table-tool"><img src="../../app/static/img/generica.svg" alt="" width="64" height="60"><span><strong>Trena de medição</strong><small>T005</small></span></div></td><td><div class="table-person"><svg class="icon"><use href="#i-user"/></svg>Morador 001</div></td><td class="nowrap">30/10/2026</td><td class="nowrap">05/11/2026</td><td><span class="loan-status loan-no-prazo"><svg class="icon"><use href="#i-check-circle"/></svg>No prazo</span></td><td><form method="post" action="devolucoes.html" class="return-form" data-confirm-return="Confirmar a devolução da ferramenta Trena de medição?"><input type="hidden" name="csrf_token" value="preview-token"><button class="btn btn-primary btn-return" type="submit"><svg class="icon"><use href="#i-return"/></svg> Registrar devolução</button></form></td></tr>
+    </tbody></table></div>
+  <div class="table-bottom"><span>Mostrando 3 de 3 empréstimos ativos</span><a href="emprestimo.html" class="text-link">+ Novo empréstimo</a></div>
+</section>
+
+  </main>
+  <footer class="footer"><div class="footer-inner"><svg class="footer-logo" aria-hidden="true"><use href="#i-tools"/></svg><strong>Ferramenta Compartilhada</strong><span class="footer-divider"></span><span>Projeto MVP acadêmico</span></div></footer>
+</body>
+</html>

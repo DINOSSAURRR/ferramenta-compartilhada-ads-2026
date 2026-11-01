@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Consulte ferramentas disponíveis e organize empréstimos na associação comunitária.">
+  <title>Registrar empréstimo — MVP acadêmico</title>
+  <link rel="stylesheet" href="../../app/static/css/styles.css">
+  <script src="../../app/static/js/main.js" defer></script>
+</head>
+<body>
+  <svg class="svg-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-tools" viewBox="0 0 24 24"><path d="M14.7 6.3a5 5 0 0 0-6.4 6.4l-6 6a2 2 0 0 0 2.8 2.8l6-6a5 5 0 0 0 6.4-6.4L14 12l-2.8-2.8z"/><path d="m3 3 18 18M4 8l4-4"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="7.5" r="4"/><path d="M4 21v-2c0-4.4 3.1-7 8-7s8 2.6 8 7v2z"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 20c0-4 2.5-6 7-6s7 2 7 6M16 5c2.5 0 4 2 4 4s-1.5 3-3 3M18 14c3.5.3 4.5 2.5 4.5 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m4 12 5 5L20 6"/></symbol>
+    <symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m6.7 12 3.2 3.2 7.4-7.4"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="m12 3 10 18H2z"/><path d="M12 9v5m0 3v.4"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 11v6m0-10v1"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="m2 11 10-8 10 8M5 10v11h14V10"/></symbol>
+    <symbol id="i-log-out" viewBox="0 0 24 24"><path d="M9 3H4v18h5M13 7l5 5-5 5M18 12H8"/></symbol>
+    <symbol id="i-clipboard" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="17" rx="2"/><path d="M9 3h6v4H9zM8 12h8m-8 4h5"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 5h7l2 3h9v12H3z"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 2v6M17 2v6M3 10h18"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+    <symbol id="i-arrow-back" viewBox="0 0 24 24"><path d="M20 12H5m0 0 6-6m-6 6 6 6"/></symbol>
+    <symbol id="i-return" viewBox="0 0 24 24"><path d="M20 6v6H8m0 0 5-5m-5 5 5 5M3 19h13"/></symbol>
+    <symbol id="i-save" viewBox="0 0 24 24"><path d="M4 3h14l3 3v15H3V3h1zM7 3v7h10V3M7 21v-8h10v8"/></symbol>
+    <symbol id="i-boxes" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7zM2 12l10 5 10-5M2 17l10 5 10-5"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 22s8-9 8-14a8 8 0 0 0-16 0c0 5 8 14 8 14z"/><circle cx="12" cy="8" r="2.5"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+  </svg>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <a class="brand" href="catalogo.html" aria-label="Ferramenta Compartilhada — página inicial">
+        <svg class="brand-mark" aria-hidden="true"><use href="#i-tools"></use></svg>
+        <span class="brand-divider" aria-hidden="true"></span>
+        <span class="brand-copy"><strong>Ferramenta Compartilhada</strong>
+        <span>Área administrativa <span aria-hidden="true">•</span> Registro de empréstimos</span></span>
+      </a>
+      <nav class="top-actions" aria-label="Navegação principal">
+        
+          <a class="nav-btn nav-current" href="emprestimo.html"><svg class="icon"><use href="#i-clipboard"/></svg> Empréstimos</a>
+          <a class="nav-btn " href="devolucoes.html"><svg class="icon"><use href="#i-folder"/></svg> Devoluções</a>
+          <form method="post" action="login.html" class="nav-form"><input type="hidden" name="csrf_token" value="preview-token"><button type="submit" class="nav-btn"><svg class="icon"><use href="#i-log-out"/></svg> Sair</button></form>
+        
+      </nav>
+    </div>
+  </header>
+  <main class="main-shell " id="conteudo">
+    <nav class="breadcrumb" aria-label="Caminho de navegação">
+  <a href="catalogo.html"><svg class="icon"><use href="#i-home"/></svg> Catálogo público</a>
+  <svg class="icon chevron" aria-hidden="true"><use href="#i-chevron"/></svg>
+  <a href="emprestimo.html">Área administrativa</a>
+  <svg class="icon chevron" aria-hidden="true"><use href="#i-chevron"/></svg>
+  <strong aria-current="page">Registrar empréstimo</strong>
+</nav>
+    
+      
+    
+    
+<div class="admin-head"><h1>Registrar empréstimo</h1><p>Preencha os dados para registrar a retirada da ferramenta.</p></div>
+<div class="admin-two-col">
+  <div>
+    <form class="form-panel" method="post" action="emprestimo.html">
+      <input type="hidden" name="csrf_token" value="preview-token">
+      <div class="form-field"><label for="morador_id">Morador <span class="required">*</span></label><select id="morador_id" name="morador_id" required><option value="">Selecione um morador</option><option value="1" >Morador 001</option><option value="2" >Morador 002</option><option value="3" >Morador 003</option><option value="4" >Morador 004</option></select></div>
+      <div class="form-field"><label for="ferramenta_id">Ferramenta disponível <span class="required">*</span></label><select id="ferramenta_id" name="ferramenta_id" required><option value="">Selecione uma ferramenta</option><option value="1" >F001 - Furadeira elétrica</option><option value="3" >M003 - Martelo</option></select></div>
+      <div class="field-grid"><div class="form-field"><label for="data_emprestimo">Data do empréstimo <span class="required">*</span></label><input id="data_emprestimo" name="data_emprestimo" type="date" value="2026-11-01" max="2026-11-01" required></div><div class="form-field"><label for="data_prevista">Data prevista para devolução <span class="required">*</span></label><input id="data_prevista" name="data_prevista" type="date" value="" required><span class="field-hint">Use o formato dd/mm/aaaa.</span></div></div>
+      <div class="form-field"><label for="observacoes">Observações</label><textarea name="observacoes" id="observacoes" rows="3" maxlength="300" placeholder="Ex.: Uso para pequenos reparos residenciais."></textarea></div>
+      <div class="form-actions"><a href="catalogo.html" class="btn btn-secondary">Cancelar</a><button class="btn btn-primary" type="submit"><svg class="icon"><use href="#i-save"/></svg> Salvar empréstimo</button></div>
+    </form>
+    <div class="management-links"><a href="moradores.html">+ Cadastrar morador</a><a href="ferramentas.html">+ Cadastrar ferramenta</a></div>
+  </div>
+  <aside class="guidance admin-guidance"><h2><svg class="icon icon-large"><use href="#i-info"/></svg> Orientações</h2><div class="guidance-highlight"><svg class="icon"><use href="#i-tools"/></svg><span>Confirme se a ferramenta está disponível.</span></div><div class="guidance-row"><svg class="icon"><use href="#i-users"/></svg><p>Verifique os dados do morador.</p></div><div class="guidance-row"><svg class="icon"><use href="#i-calendar"/></svg><p>Informe corretamente a data prevista de devolução.</p></div></aside>
+</div>
+
+  </main>
+  <footer class="footer"><div class="footer-inner"><svg class="footer-logo" aria-hidden="true"><use href="#i-tools"/></svg><strong>Ferramenta Compartilhada</strong><span class="footer-divider"></span><span>Projeto MVP acadêmico</span></div></footer>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Consulte ferramentas disponíveis e organize empréstimos na associação comunitária.">
+  <title>Catálogo público — MVP acadêmico</title>
+  <link rel="stylesheet" href="../../app/static/css/styles.css">
+  <script src="../../app/static/js/main.js" defer></script>
+</head>
+<body>
+  <svg class="svg-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-tools" viewBox="0 0 24 24"><path d="M14.7 6.3a5 5 0 0 0-6.4 6.4l-6 6a2 2 0 0 0 2.8 2.8l6-6a5 5 0 0 0 6.4-6.4L14 12l-2.8-2.8z"/><path d="m3 3 18 18M4 8l4-4"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="7.5" r="4"/><path d="M4 21v-2c0-4.4 3.1-7 8-7s8 2.6 8 7v2z"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 20c0-4 2.5-6 7-6s7 2 7 6M16 5c2.5 0 4 2 4 4s-1.5 3-3 3M18 14c3.5.3 4.5 2.5 4.5 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m4 12 5 5L20 6"/></symbol>
+    <symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m6.7 12 3.2 3.2 7.4-7.4"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="m12 3 10 18H2z"/><path d="M12 9v5m0 3v.4"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 11v6m0-10v1"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="m2 11 10-8 10 8M5 10v11h14V10"/></symbol>
+    <symbol id="i-log-out" viewBox="0 0 24 24"><path d="M9 3H4v18h5M13 7l5 5-5 5M18 12H8"/></symbol>
+    <symbol id="i-clipboard" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="17" rx="2"/><path d="M9 3h6v4H9zM8 12h8m-8 4h5"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 5h7l2 3h9v12H3z"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 2v6M17 2v6M3 10h18"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+    <symbol id="i-arrow-back" viewBox="0 0 24 24"><path d="M20 12H5m0 0 6-6m-6 6 6 6"/></symbol>
+    <symbol id="i-return" viewBox="0 0 24 24"><path d="M20 6v6H8m0 0 5-5m-5 5 5 5M3 19h13"/></symbol>
+    <symbol id="i-save" viewBox="0 0 24 24"><path d="M4 3h14l3 3v15H3V3h1zM7 3v7h10V3M7 21v-8h10v8"/></symbol>
+    <symbol id="i-boxes" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7zM2 12l10 5 10-5M2 17l10 5 10-5"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 22s8-9 8-14a8 8 0 0 0-16 0c0 5 8 14 8 14z"/><circle cx="12" cy="8" r="2.5"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+  </svg>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <a class="brand" href="catalogo.html" aria-label="Ferramenta Compartilhada — página inicial">
+        <svg class="brand-mark" aria-hidden="true"><use href="#i-tools"></use></svg>
+        <span class="brand-divider" aria-hidden="true"></span>
+        <span class="brand-copy"><strong>Ferramenta Compartilhada</strong>
+        <span>Consulte ferramentas disponíveis para empréstimo na comunidade.</span></span>
+      </a>
+      <nav class="top-actions" aria-label="Navegação principal">
+        
+          <a class="nav-btn" href="login.html"><svg class="icon"><use href="#i-user"/></svg> Área administrativa</a>
+        
+      </nav>
+    </div>
+  </header>
+  <main class="main-shell main-catalogo" id="conteudo">
+    
+    
+      
+    
+    
+<div class="catalog-layout">
+  <section class="catalog-primary" aria-labelledby="buscar-title">
+    <h1 id="buscar-title" class="label-search">Pesquisar ferramenta</h1>
+    <form class="search-form" method="get" action="catalogo.html" role="search">
+      <div class="search-box"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg><label class="sr-only" for="q">Nome ou código da ferramenta</label><input id="q" name="q" value="" maxlength="80" placeholder="Digite o nome da ferramenta (ex.: furadeira, escada, martelo)"></div>
+      <button class="btn btn-primary search-submit" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg> Buscar</button>
+    </form>
+    <nav class="pill-tabs" aria-label="Filtrar disponibilidade">
+      <a class="pill-tab selected" href="catalogo.html?q=&amp;status=todas" aria-current="page">Todas</a>
+      <a class="pill-tab " href="catalogo.html?q=&amp;status=disponiveis" >Disponíveis</a>
+      <a class="pill-tab " href="catalogo.html?q=&amp;status=emprestadas" >Emprestadas</a>
+    </nav>
+    <div class="catalog-items" aria-live="polite">
+      
+        <article class="tool-card">
+          <img src="../../app/static/img/furadeira.jpg" alt="Ilustração da ferramenta Furadeira elétrica" width="176" height="120">
+          <div class="tool-info"><h2>F001 - Furadeira elétrica</h2><p>Furadeira para perfurações em madeira, metal e alvenaria.</p></div>
+          <span class="status status-disponivel"><svg class="icon" aria-hidden="true"><use href="#i-check-circle"/></svg> Disponível</span>
+        </article>
+      
+        <article class="tool-card">
+          <img src="../../app/static/img/escada.jpg" alt="Ilustração da ferramenta Escada de alumínio" width="176" height="120">
+          <div class="tool-info"><h2>E002 - Escada de alumínio</h2><p>Escada dobrável de 6 degraus, ideal para pequenos reparos.</p></div>
+          <span class="status status-emprestada"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg> Emprestada</span>
+        </article>
+      
+        <article class="tool-card">
+          <img src="../../app/static/img/martelo.jpg" alt="Ilustração da ferramenta Martelo" width="176" height="120">
+          <div class="tool-info"><h2>M003 - Martelo</h2><p>Martelo de uso geral, indicado para pequenos reparos e montagens.</p></div>
+          <span class="status status-disponivel"><svg class="icon" aria-hidden="true"><use href="#i-check-circle"/></svg> Disponível</span>
+        </article>
+      
+    </div>
+  </section>
+  <aside class="guidance" aria-labelledby="orientacoes-title">
+    <h2 id="orientacoes-title"><svg class="icon icon-large"><use href="#i-info"/></svg> Orientações</h2>
+    <div class="guidance-highlight"><svg class="icon"><use href="#i-pin"/></svg><strong>Consulte a disponibilidade antes de se deslocar até a associação.</strong></div>
+    <div class="guidance-row"><svg class="icon"><use href="#i-users"/></svg><p>Veja quais ferramentas estão livres ou emprestadas.</p></div>
+    <div class="guidance-row"><svg class="icon"><use href="#i-search"/></svg><p>Use a pesquisa e os filtros para encontrar o que precisa.</p></div>
+    <div class="guidance-row"><svg class="icon"><use href="#i-home"/></svg><p>Em caso de dúvidas, procure a equipe da associação.</p></div>
+  </aside>
+</div>
+
+  </main>
+  <footer class="footer"><div class="footer-inner"><svg class="footer-logo" aria-hidden="true"><use href="#i-tools"/></svg><strong>Ferramenta Compartilhada</strong><span class="footer-divider"></span><span>Projeto MVP acadêmico</span></div></footer>
+</body>
+</html>
