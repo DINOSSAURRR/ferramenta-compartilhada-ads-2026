@@ -6,9 +6,34 @@
   <meta name="description" content="Consulte ferramentas disponíveis e organize empréstimos na associação comunitária.">
   <title>{% block title %}Ferramenta Compartilhada{% endblock %} — MVP acadêmico</title>
   <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css') }}">
+  <!-- Estilo do atalho de teclado: visível apenas quando recebe foco. -->
+  <style>
+    .skip-link {
+      position: fixed;
+      top: -100px;
+      left: 16px;
+      z-index: 9999;
+      padding: 12px 18px;
+      border: 2px solid #003b73;
+      border-radius: 6px;
+      background: #ffffff;
+      color: #003b73;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .skip-link:focus,
+    .skip-link:focus-visible {
+      top: 12px;
+      outline: 3px solid #f59e0b;
+      outline-offset: 2px;
+    }
+  </style>
   <script src="{{ url_for('static',filename='js/main.js') }}" defer></script>
 </head>
 <body>
+  <a href="#conteudo-principal" class="skip-link">
+    Pular para o conteúdo principal
+  </a>
   <svg class="svg-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <symbol id="i-tools" viewBox="0 0 24 24"><path d="M14.7 6.3a5 5 0 0 0-6.4 6.4l-6 6a2 2 0 0 0 2.8 2.8l6-6a5 5 0 0 0 6.4-6.4L14 12l-2.8-2.8z"/><path d="m3 3 18 18M4 8l4-4"/></symbol>
     <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></symbol>
@@ -50,7 +75,9 @@
       </nav>
     </div>
   </header>
-  <main class="main-shell {% block main_class %}{% endblock %}" id="conteudo">
+  <main class="main-shell {% block main_class %}{% endblock %}"
+      id="conteudo-principal"
+      tabindex="-1">
     {% block breadcrumb %}{% endblock %}
     {% with messages = get_flashed_messages(with_categories=true) %}
       {% if messages %}<div class="flash-list" aria-live="polite">{% for kind,message in messages %}<div class="flash flash-{{ kind }}" role="status"><svg class="icon"><use href="#{% if kind=='success' %}i-check-circle{% elif kind=='error' %}i-alert{% else %}i-info{% endif %}"/></svg><span>{{ message }}</span><button type="button" class="flash-close" aria-label="Fechar aviso">×</button></div>{% endfor %}</div>{% endif %}
