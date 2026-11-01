@@ -75,7 +75,9 @@
       </nav>
     </div>
   </header>
-  <main id="conteudo-principal" tabindex="-1">
+  <main class="main-shell {% block main_class %}{% endblock %}"
+      id="conteudo-principal"
+      tabindex="-1">
     {% block breadcrumb %}{% endblock %}
     {% with messages = get_flashed_messages(with_categories=true) %}
       {% if messages %}<div class="flash-list" aria-live="polite">{% for kind,message in messages %}<div class="flash flash-{{ kind }}" role="status"><svg class="icon"><use href="#{% if kind=='success' %}i-check-circle{% elif kind=='error' %}i-alert{% else %}i-info{% endif %}"/></svg><span>{{ message }}</span><button type="button" class="flash-close" aria-label="Fechar aviso">×</button></div>{% endfor %}</div>{% endif %}
