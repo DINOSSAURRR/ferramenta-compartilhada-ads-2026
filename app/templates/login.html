@@ -1,0 +1,5 @@
+{% extends 'base.html' %}
+{% block title %}Acesso administrativo{% endblock %}
+{% block content %}
+<div class="login-center"><div class="login-panel"><div class="login-icon"><svg class="icon"><use href="#i-user"/></svg></div><h1>Área administrativa</h1><p>Entre com sua conta de voluntário para controlar os empréstimos.</p><form method="post" action="{{ url_for('main.login') }}"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><div class="form-field"><label for="username">Usuário</label><input id="username" name="username" maxlength="60" autocomplete="username" required></div><div class="form-field"><label for="password">Senha</label><input id="password" name="password" type="password" autocomplete="current-password" required></div><button class="btn btn-primary login-button" type="submit">Entrar</button></form><a href="{{ url_for('main.catalogo') }}" class="return-to-catalog">← Voltar ao catálogo público</a></div></div>
+{% endblock %}

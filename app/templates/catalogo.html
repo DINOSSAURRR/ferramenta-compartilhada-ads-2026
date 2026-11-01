@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}Catálogo público{% endblock %}
+{% block main_class %}main-catalogo{% endblock %}
+{% block content %}
+<div class="catalog-layout">
+  <section class="catalog-primary" aria-labelledby="buscar-title">
+    <h1 id="buscar-title" class="label-search">Pesquisar ferramenta</h1>
+    <form class="search-form" method="get" action="{{ url_for('main.catalogo') }}" role="search">
+      <div class="search-box"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg><label class="sr-only" for="q">Nome ou código da ferramenta</label><input id="q" name="q" value="{{ busca }}" maxlength="80" placeholder="Digite o nome da ferramenta (ex.: furadeira, escada, martelo)"></div>
+      <button class="btn btn-primary search-submit" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg> Buscar</button>
+    </form>
+    <nav class="pill-tabs" aria-label="Filtrar disponibilidade">
+      <a class="pill-tab {% if filtro=='todas' %}selected{% endif %}" href="{{ url_for('main.catalogo',q=busca,status='todas') }}" {% if filtro=='todas' %}aria-current="page"{% endif %}>Todas</a>
+      <a class="pill-tab {% if filtro=='disponiveis' %}selected{% endif %}" href="{{ url_for('main.catalogo',q=busca,status='disponiveis') }}" {% if filtro=='disponiveis' %}aria-current="page"{% endif %}>Disponíveis</a>
+      <a class="pill-tab {% if filtro=='emprestadas' %}selected{% endif %}" href="{{ url_for('main.catalogo',q=busca,status='emprestadas') }}" {% if filtro=='emprestadas' %}aria-current="page"{% endif %}>Emprestadas</a>
+    </nav>
+    <div class="catalog-items" aria-live="polite">
+      {% for ferramenta in ferramentas %}
+        <article class="tool-card">
+          <img src="{{ url_for('static',filename='img/'+ferramenta['imagem']) }}" alt="Ilustração da ferramenta {{ ferramenta['nome'] }}" width="176" height="120">
+          <div class="tool-info"><h2>{{ ferramenta['codigo'] }} - {{ ferramenta['nome'] }}</h2><p>{{ ferramenta['descricao'] }}</p></div>
+          <span class="status status-{{ ferramenta['status'] }}">{% if ferramenta['status']=='disponivel' %}<svg class="icon" aria-hidden="true"><use href="#i-check-circle"/></svg> Disponível{% elif ferramenta['status']=='emprestada' %}<svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg> Emprestada{% else %}<svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg> Manutenção{% endif %}</span>
+        </article>
+      {% else %}
+        <div class="empty-state"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg><strong>Nenhuma ferramenta encontrada.</strong><span>Tente outra pesquisa ou selecione o filtro “Todas”.</span></div>
+      {% endfor %}
+    </div>
+  </section>
+  <aside class="guidance" aria-labelledby="orientacoes-title">
+    <h2 id="orientacoes-title"><svg class="icon icon-large"><use href="#i-info"/></svg> Orientações</h2>
+    <div class="guidance-highlight"><svg class="icon"><use href="#i-pin"/></svg><strong>Consulte a disponibilidade antes de se deslocar até a associação.</strong></div>
+    <div class="guidance-row"><svg class="icon"><use href="#i-users"/></svg><p>Veja quais ferramentas estão livres ou emprestadas.</p></div>
+    <div class="guidance-row"><svg class="icon"><use href="#i-search"/></svg><p>Use a pesquisa e os filtros para encontrar o que precisa.</p></div>
+    <div class="guidance-row"><svg class="icon"><use href="#i-home"/></svg><p>Em caso de dúvidas, procure a equipe da associação.</p></div>
+  </aside>
+</div>
+{% endblock %}

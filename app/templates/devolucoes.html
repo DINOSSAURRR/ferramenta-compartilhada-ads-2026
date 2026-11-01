@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Devoluções e atrasos{% endblock %}
+{% block breadcrumb %}{% set pagina_atual = 'Devoluções e atrasos' %}{% include '_breadcrumb.html' %}{% endblock %}
+{% block content %}
+<div class="admin-head"><h1>Devoluções e Atrasos</h1><p>Acompanhe os empréstimos ativos, verifique os prazos e registre as devoluções.</p></div>
+<div class="metrics" aria-label="Resumo dos empréstimos">
+  <div class="metric metric-total"><svg class="icon"><use href="#i-boxes"/></svg><div><strong>{{ total }}</strong><span>Empréstimos ativos</span></div></div>
+  <div class="metric metric-overdue"><svg class="icon"><use href="#i-alert"/></svg><div><strong>{{ atrasados }}</strong><span>{{ 'Atrasado' if atrasados==1 else 'Atrasados' }}</span></div></div>
+  <div class="metric metric-current"><svg class="icon"><use href="#i-check-circle"/></svg><div><strong>{{ no_prazo }}</strong><span>No prazo</span></div></div>
+</div>
+<form class="filters-row" role="search" method="get" action="{{ url_for('main.devolucoes') }}">
+  <div class="search-box"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg><label class="sr-only" for="loan_q">Buscar por ferramenta ou morador</label><input id="loan_q" name="q" value="{{ busca }}" maxlength="80" placeholder="Buscar por ferramenta ou morador"></div>
+  <label class="sr-only" for="loan_filter">Filtrar situação</label><select id="loan_filter" name="status" data-auto-submit><option value="todos" {% if situacao=='todos' %}selected{% endif %}>Todos os status</option><option value="atrasados" {% if situacao=='atrasados' %}selected{% endif %}>Atrasados</option><option value="no-prazo" {% if situacao=='no-prazo' %}selected{% endif %}>No prazo</option></select>
+  <button class="btn btn-primary" type="submit">Filtrar</button>
+</form>
+<section class="table-card" aria-label="Empréstimos ativos">
+  <div class="table-scroll"><table class="loan-table"><thead><tr><th scope="col">Ferramenta</th><th scope="col">Morador</th><th scope="col">Empréstimo</th><th scope="col">Devolução prevista</th><th scope="col">Situação</th><th scope="col">Ações</th></tr></thead><tbody>
+    {% for e in registros %}<tr><td><div class="table-tool"><img src="{{ url_for('static',filename='img/'+e['imagem']) }}" alt="" width="64" height="60"><span><strong>{{ e['nome'] }}</strong><small>{{ e['codigo'] }}</small></span></div></td><td><div class="table-person"><svg class="icon"><use href="#i-user"/></svg>{{ e['morador_nome'] }}</div></td><td class="nowrap">{{ e['data_emprestimo']|data_br }}</td><td class="nowrap">{{ e['data_prevista']|data_br }}</td><td><span class="loan-status loan-{{ e['situacao'] }}"><svg class="icon"><use href="#{% if e['situacao']=='atrasado' %}i-alert{% else %}i-check-circle{% endif %}"/></svg>{{ 'Atrasado' if e['situacao']=='atrasado' else 'No prazo' }}</span></td><td><form method="post" action="{{ url_for('main.confirmar_devolucao',emprestimo_id=e['id']) }}" class="return-form" data-confirm-return="Confirmar a devolução da ferramenta {{ e['nome'] }}?"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><button class="btn btn-primary btn-return" type="submit"><svg class="icon"><use href="#i-return"/></svg> Registrar devolução</button></form></td></tr>{% else %}
+    <tr><td colspan="6" class="table-empty">Nenhum empréstimo encontrado para este filtro.</td></tr>{% endfor %}
+    </tbody></table></div>
+  <div class="table-bottom"><span>Mostrando {{ registros|length }} de {{ total }} empréstimos ativos</span><a href="{{ url_for('main.registrar_emprestimo') }}" class="text-link">+ Novo empréstimo</a></div>
+</section>
+{% endblock %}

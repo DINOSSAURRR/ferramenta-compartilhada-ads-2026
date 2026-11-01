@@ -1,0 +1,7 @@
+<nav class="breadcrumb" aria-label="Caminho de navegação">
+  <a href="{{ url_for('main.catalogo') }}"><svg class="icon"><use href="#i-home"/></svg> Catálogo público</a>
+  <svg class="icon chevron" aria-hidden="true"><use href="#i-chevron"/></svg>
+  <a href="{{ url_for('main.admin') }}">Área administrativa</a>
+  <svg class="icon chevron" aria-hidden="true"><use href="#i-chevron"/></svg>
+  <strong aria-current="page">{{ pagina_atual }}</strong>
+</nav>

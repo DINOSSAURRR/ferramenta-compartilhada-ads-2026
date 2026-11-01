@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Registrar empréstimo{% endblock %}
+{% block breadcrumb %}{% set pagina_atual = 'Registrar empréstimo' %}{% include '_breadcrumb.html' %}{% endblock %}
+{% block content %}
+<div class="admin-head"><h1>Registrar empréstimo</h1><p>Preencha os dados para registrar a retirada da ferramenta.</p></div>
+<div class="admin-two-col">
+  <div>
+    <form class="form-panel" method="post" action="{{ url_for('main.registrar_emprestimo') }}">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <div class="form-field"><label for="morador_id">Morador <span class="required">*</span></label><select id="morador_id" name="morador_id" required><option value="">Selecione um morador</option>{% for m in moradores %}<option value="{{ m['id'] }}" {% if request.form.get('morador_id') == m['id']|string %}selected{% endif %}>{{ m['nome'] }}</option>{% endfor %}</select></div>
+      <div class="form-field"><label for="ferramenta_id">Ferramenta disponível <span class="required">*</span></label><select id="ferramenta_id" name="ferramenta_id" required><option value="">Selecione uma ferramenta</option>{% for f in ferramentas %}<option value="{{ f['id'] }}" {% if request.form.get('ferramenta_id') == f['id']|string %}selected{% endif %}>{{ f['codigo'] }} - {{ f['nome'] }}</option>{% endfor %}</select></div>
+      <div class="field-grid"><div class="form-field"><label for="data_emprestimo">Data do empréstimo <span class="required">*</span></label><input id="data_emprestimo" name="data_emprestimo" type="date" value="{{ request.form.get('data_emprestimo',today) }}" max="{{ today }}" required></div><div class="form-field"><label for="data_prevista">Data prevista para devolução <span class="required">*</span></label><input id="data_prevista" name="data_prevista" type="date" value="{{ request.form.get('data_prevista','') }}" required><span class="field-hint">Use o formato dd/mm/aaaa.</span></div></div>
+      <div class="form-field"><label for="observacoes">Observações</label><textarea name="observacoes" id="observacoes" rows="3" maxlength="300" placeholder="Ex.: Uso para pequenos reparos residenciais.">{{ request.form.get('observacoes','') }}</textarea></div>
+      <div class="form-actions"><a href="{{ url_for('main.catalogo') }}" class="btn btn-secondary">Cancelar</a><button class="btn btn-primary" type="submit"><svg class="icon"><use href="#i-save"/></svg> Salvar empréstimo</button></div>
+    </form>
+    <div class="management-links"><a href="{{ url_for('main.cad_moradores') }}">+ Cadastrar morador</a><a href="{{ url_for('main.cad_ferramentas') }}">+ Cadastrar ferramenta</a></div>
+  </div>
+  <aside class="guidance admin-guidance"><h2><svg class="icon icon-large"><use href="#i-info"/></svg> Orientações</h2><div class="guidance-highlight"><svg class="icon"><use href="#i-tools"/></svg><span>Confirme se a ferramenta está disponível.</span></div><div class="guidance-row"><svg class="icon"><use href="#i-users"/></svg><p>Verifique os dados do morador.</p></div><div class="guidance-row"><svg class="icon"><use href="#i-calendar"/></svg><p>Informe corretamente a data prevista de devolução.</p></div></aside>
+</div>
+{% endblock %}
