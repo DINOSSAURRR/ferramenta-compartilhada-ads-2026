@@ -61,10 +61,3 @@ python -m pytest -q
 
 Antes de publicar para pessoas reais: definir `FLASK_SECRET_KEY` em variável de ambiente, configurar HTTPS e `FLASK_HTTPS=1`, usar servidor WSGI apropriado, desabilitar debug, criar backup e armazenamento persistente, revisar a política de privacidade e as permissões dos voluntários. A senha gerada no ambiente de demonstração **não deve ser utilizada em produção**. O projeto não oferece garantia de produção sem avaliação adicional.
 
-## Controle de versão
-
-O diretório pode ser adicionado ao repositório público `ferramenta-compartilhada` no GitHub. Consulte `docs/COMMIT_GUIDE.md` para mensagens semânticas e fluxo de revisão. Os commits locais e os commits publicados no GitHub são eventos diferentes: verifique o SHA remoto antes de preencher a atividade.
-
-## Publicar no GitHub
-
-Leia [`docs/COMO_PUBLICAR_NO_GITHUB.md`](docs/COMO_PUBLICAR_NO_GITHUB.md). O procedimento muda caso o repositório online já tenha um commit inicial. **Não use push forçado.**
